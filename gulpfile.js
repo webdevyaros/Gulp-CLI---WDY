@@ -2,6 +2,7 @@
 var gulp = require('gulp'); // gulp init
 var sass = require('gulp-sass'); // gulp sass init
 var browserSync = require('browser-sync').create(); // Browser sync init
+var uglify = require('gulp-uglify'); // Helps to minify JS files
 
 /* Files to build */
 
@@ -31,7 +32,7 @@ gulp.task('html:build', function() {
 /* Tasks to run */
 
 // Gulp watch
-gulp.task('watch', ['browserSync', 'css:build', 'html:build'] , function() {
+gulp.task('watch', ['browserSync', 'css:build'] , function() {
     // Watch css files
     gulp.watch('./app/sass/**/*.+(scss|sass)', [ 'css:build' ]);
     gulp.watch('./app/js/**/*.js', [ 'js:build', browserSync.reload ]);
